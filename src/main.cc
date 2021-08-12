@@ -7,6 +7,11 @@
 
 using namespace std;
 
+void doubleSecondDigit()
+{
+  /* double every second digit */
+}
+
 void isValid(int &j, vector<string>::iterator &it)
 {
   cout << setw(5) << j << " - " << setw(20) << *it << endl;
@@ -56,8 +61,13 @@ int main(void)
 
   for (i = 1, iterator = cc.begin(); iterator != cc.end(); ++iterator, i++)
   {
-    isValid(i, iterator);
+    cout << setw(5) << i << " - " << setw(20) << *iterator << endl;
   }
 
   return 0;
 }
+
+/* 
+  1.Double every second digit from right to left. 
+  2.If doubling of a digit results in a two digits, add the two digits to get a single digit number.
+*/
