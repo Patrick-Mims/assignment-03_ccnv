@@ -1,11 +1,16 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <string>
 #include <vector>
 
 #include "ccnv.h"
 
 using namespace std;
+
+void addTwoDigits()
+{
+  /* add two digits to get a single digit number. */
+}
 
 void doubleSecondDigit()
 {
@@ -61,7 +66,7 @@ int main(void)
 
   for (i = 1, iterator = cc.begin(); iterator != cc.end(); ++iterator, i++)
   {
-    cout << setw(5) << i << " - " << setw(20) << *iterator << endl;
+    isValid(i, iterator);
   }
 
   return 0;
