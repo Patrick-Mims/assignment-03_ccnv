@@ -7,14 +7,45 @@
 
 using namespace std;
 
-void addTwoDigits()
+/* add two digits to get a single digit number. */
+int addTwoDigits(int digit)
+//int addTwoDigits(const int &digit_one, const int &digit_two)
 {
-  /* add two digits to get a single digit number. */
+  /*
+  1. double the value of digit
+  2. return the sum of the parsed doubled digit ((10) == digit-1, digit-0) 
+  */
+  /*
+    extract the first and second digit. 
+    add first and second
+    return sum
+  */
+
+  return (digit * 2);
 }
 
-void doubleSecondDigit()
+void doubleSecondDigit(int i, vector<string> &v)
 {
-  /* double every second digit */
+  vector<string>::iterator it = v.begin();
+  while (it != v.end())
+  {
+    cout << "(" << it[0][0] << ")" << endl;
+    it++;
+  }
+
+  /* stopped here*/
+  /*
+  int v.data = 0;
+
+  if (second_digit >= 5)
+  {
+    single_digit = addTwoDigits(second_digit);
+  }
+  else
+  {
+    single_digit = (second_digit * 2);
+  }
+  */
 }
 
 void isValid(int &j, vector<string>::iterator &it)
@@ -62,12 +93,25 @@ int main(void)
   vector<string> cc;
   vector<string>::iterator iterator;
 
+  /* dangling pointer example */
+  int *a = new int();
+  int *b;
+
+  b = a;
+
+  delete a;
+  a = nullptr;
+  /* end */
+
   createVector(cc);
 
   for (i = 1, iterator = cc.begin(); iterator != cc.end(); ++iterator, i++)
   {
     isValid(i, iterator);
   }
+  doubleSecondDigit(i, cc);
+
+  cout << cc.size() << endl;
 
   return 0;
 }
@@ -75,4 +119,6 @@ int main(void)
 /* 
   1.Double every second digit from right to left. 
   2.If doubling of a digit results in a two digits, add the two digits to get a single digit number.
+
+  vector is a sequential container, objects are placed into the container LIFO  
 */
