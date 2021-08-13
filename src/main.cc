@@ -8,9 +8,10 @@
 using namespace std;
 
 /* add two digits to get a single digit number. */
-int addTwoDigits(int digit)
+int addTwoDigits(vector<string>::iterator &itr)
 //int addTwoDigits(const int &digit_one, const int &digit_two)
 {
+  cout << "I'm going to double this digit: " << *itr << endl;
   /*
   1. double the value of digit
   2. return the sum of the parsed doubled digit ((10) == digit-1, digit-0) 
@@ -21,31 +22,31 @@ int addTwoDigits(int digit)
     return sum
   */
 
-  return (digit * 2);
+  return 1;
 }
 
-void doubleSecondDigit(int i, vector<string> &v)
+void doubleEveryOtherDigit(int i, vector<string> &v)
 {
+  int single_digit = 0;
   vector<string>::iterator it = v.begin();
   while (it != v.end())
   {
-    cout << "(" << it[0][0] << ")" << endl;
+    //cout << "(" << it[0][0] << ")(" << it[0][1] << ")" << endl;
+
+    if (it[0][1] >= 5)
+    {
+      int a = it[0][1];
+      cout << "second digit: " << it[0][1] << endl;
+      cout << ">>>" << a << endl;
+      //single_digit = addTwoDigits(it[0][1]);
+    }
+    else
+    {
+      single_digit = (it[0][1] * 2);
+      cout << "single_digit: " << it[0][1] << endl;
+    }
     it++;
   }
-
-  /* stopped here*/
-  /*
-  int v.data = 0;
-
-  if (second_digit >= 5)
-  {
-    single_digit = addTwoDigits(second_digit);
-  }
-  else
-  {
-    single_digit = (second_digit * 2);
-  }
-  */
 }
 
 void isValid(int &j, vector<string>::iterator &it)
@@ -93,25 +94,14 @@ int main(void)
   vector<string> cc;
   vector<string>::iterator iterator;
 
-  /* dangling pointer example */
-  int *a = new int();
-  int *b;
-
-  b = a;
-
-  delete a;
-  a = nullptr;
-  /* end */
-
   createVector(cc);
 
   for (i = 1, iterator = cc.begin(); iterator != cc.end(); ++iterator, i++)
   {
     isValid(i, iterator);
   }
-  doubleSecondDigit(i, cc);
 
-  cout << cc.size() << endl;
+  doubleEveryOtherDigit(i, cc);
 
   return 0;
 }
