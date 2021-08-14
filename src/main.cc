@@ -27,24 +27,26 @@ int addTwoDigits(vector<string>::iterator &itr)
 
 void doubleEveryOtherDigit(int i, vector<string> &v)
 {
+  int count = 0;
   int single_digit = 0;
   vector<string>::iterator it = v.begin();
   while (it != v.end())
   {
-    //cout << "(" << it[0][0] << ")(" << it[0][1] << ")" << endl;
-
-    if (it[0][1] >= 5)
+    if ((count % 2) == 0)
     {
-      int a = it[0][1];
-      cout << "second digit: " << it[0][1] << endl;
-      cout << ">>>" << a << endl;
-      //single_digit = addTwoDigits(it[0][1]);
+      if (it[0][1] >= 5)
+      {
+        cout << "Item: " << count << " Second Digit: "
+             << "(" << it[0][1] << ") " << *it << endl;
+        //single_digit = addTwoDigits(it[0][1]);
+      }
+      else
+      {
+        single_digit = (it[0][1] * 2);
+        cout << "single_digit: " << it[0][1] << endl;
+      }
     }
-    else
-    {
-      single_digit = (it[0][1] * 2);
-      cout << "single_digit: " << it[0][1] << endl;
-    }
+    count++;
     it++;
   }
 }
