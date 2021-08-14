@@ -27,6 +27,7 @@ int addTwoDigits(vector<string>::iterator &itr)
 
 void doubleEveryOtherDigit(int i, vector<string> &v)
 {
+  int index = 0;
   int count = 0;
   int single_digit = 0;
   vector<string>::iterator it = v.begin();
@@ -34,6 +35,7 @@ void doubleEveryOtherDigit(int i, vector<string> &v)
   {
     if ((count % 2) == 0)
     {
+      /* this doesn't work, can't compare an iterator object to an iterger*/
       if (it[0][1] >= 5)
       {
         cout << "Item: " << count << " Second Digit: "
